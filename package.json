@@ -7,52 +7,52 @@
   "unpkg": "dist/index.mjs",
   "jsdelivr": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "exports": {
+   "exports": {
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./dist/": "./dist/",
-    "./drivers/auth\\basic": {
-      "import": "./dist/drivers/auth\\basic.mjs",
-      "require": "./dist/drivers/auth\\basic.js",
-      "types": "./dist/drivers/auth\\basic.d.ts"
+    "./drivers/auth/basic": {
+      "import": "./dist/drivers/auth/basic.mjs",
+      "require": "./dist/drivers/auth/basic.js",
+      "types": "./dist/drivers/auth/basic.d.ts"
     },
-    "./drivers/auth\\bearer-token": {
-      "import": "./dist/drivers/auth\\bearer-token.mjs",
-      "require": "./dist/drivers/auth\\bearer-token.js",
-      "types": "./dist/drivers/auth\\bearer-token.d.ts"
+    "./drivers/auth/bearer-token": {
+      "import": "./dist/drivers/auth/bearer-token.mjs",
+      "require": "./dist/drivers/auth/bearer-token.js",
+      "types": "./dist/drivers/auth/bearer-token.d.ts"
     },
-    "./drivers/auth\\bearer": {
-      "import": "./dist/drivers/auth\\bearer.mjs",
-      "require": "./dist/drivers/auth\\bearer.js",
-      "types": "./dist/drivers/auth\\bearer.d.ts"
+    "./drivers/auth/bearer": {
+      "import": "./dist/drivers/auth/bearer.mjs",
+      "require": "./dist/drivers/auth/bearer.js",
+      "types": "./dist/drivers/auth/bearer.d.ts"
     },
-    "./drivers/auth\\devise": {
-      "import": "./dist/drivers/auth\\devise.mjs",
-      "require": "./dist/drivers/auth\\devise.js",
-      "types": "./dist/drivers/auth\\devise.d.ts"
+    "./drivers/auth/devise": {
+      "import": "./dist/drivers/auth/devise.mjs",
+      "require": "./dist/drivers/auth/devise.js",
+      "types": "./dist/drivers/auth/devise.d.ts"
     },
-    "./drivers/http\\axios": {
-      "import": "./dist/drivers/http\\axios.mjs",
-      "require": "./dist/drivers/http\\axios.js",
-      "types": "./dist/drivers/http\\axios.d.ts"
+    "./drivers/http/axios": {
+      "import": "./dist/drivers/http/axios.mjs",
+      "require": "./dist/drivers/http/axios.js",
+      "types": "./dist/drivers/http/axios.d.ts"
     },
-    "./drivers/http\\fetch": {
-      "import": "./dist/drivers/http\\fetch.mjs",
-      "require": "./dist/drivers/http\\fetch.js",
-      "types": "./dist/drivers/http\\fetch.d.ts"
+    "./drivers/http/fetch": {
+      "import": "./dist/drivers/http/fetch.mjs",
+      "require": "./dist/drivers/http/fetch.js",
+      "types": "./dist/drivers/http/fetch.d.ts"
     },
-    "./drivers/oauth2\\facebook": {
-      "import": "./dist/drivers/oauth2\\facebook.mjs",
-      "require": "./dist/drivers/oauth2\\facebook.js",
-      "types": "./dist/drivers/oauth2\\facebook.d.ts"
+    "./drivers/oauth2/facebook": {
+      "import": "./dist/drivers/oauth2/facebook.mjs",
+      "require": "./dist/drivers/oauth2/facebook.js",
+      "types": "./dist/drivers/oauth2/facebook.d.ts"
     },
-    "./drivers/oauth2\\google": {
-      "import": "./dist/drivers/oauth2\\google.mjs",
-      "require": "./dist/drivers/oauth2\\google.js",
-      "types": "./dist/drivers/oauth2\\google.d.ts"
+    "./drivers/oauth2/google": {
+      "import": "./dist/drivers/oauth2/google.mjs",
+      "require": "./dist/drivers/oauth2/google.js",
+      "types": "./dist/drivers/oauth2/google.d.ts"
     }
   },
   "typesVersions": {
@@ -126,6 +126,12 @@
     "authen",
     "vue 3",
     "vue-auth",
+    "@websanova/vue-auth"
+  ]
+}auth",
+    "@websanova/vue-auth"
+  ]
+}auth",
     "@websanova/vue-auth"
   ]
 }
