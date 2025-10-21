@@ -2,10 +2,23 @@
   <img src="./docs/public/icon.svg" width="180px">
 </p>
 
-# vue-auth3
+# vue-auth3-refresh
+
+> **Fork of [vue-auth3](https://github.com/tachibana-shin/vue-auth3)** with enhanced refresh token support
+
+## 🚀 Key Differences from Original
+
+This fork includes modifications to the `refresh()` method to support proper refresh token rotation:
+
+- ✅ Refresh endpoint is called **without** the `Authorization` header
+- ✅ Refresh token is sent in the request body as `{ refresh: REFRESH_TOKEN }`
+- ✅ Automatic handling of new refresh tokens returned by the API
+- ✅ Proper token rotation for enhanced security
+
+---
 
 This plugin is a combination of @websanova/vue-auth and Vue3 and Axios!
-[View docs](https://vue-auth3.js.org)
+[View original docs](https://vue-auth3.js.org)
 
 [![Build](https://github.com/tachibana-shin/vue-auth3/actions/workflows/docs.yml/badge.svg)](https://github.com/tachibana-shin/vue-auth3/actions/workflows/docs.yml)
 [![NPM](https://badge.fury.io/js/vue-auth3.svg)](http://badge.fury.io/js/vue-auth3)
@@ -15,7 +28,11 @@ This plugin is a combination of @websanova/vue-auth and Vue3 and Axios!
 NPM / Yarn / Pnpm:
 
 ```bash
-pnpm add vue-auth3
+pnpm add vue-auth3-refresh
+# or
+npm install vue-auth3-refresh
+# or
+yarn add vue-auth3-refresh
 ```
 
 CDN:

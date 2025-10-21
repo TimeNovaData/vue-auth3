@@ -1,7 +1,7 @@
 {
-  "name": "vue-auth3",
-  "version": "1.1.1",
-  "author": "Tachibana Shin <45375496+tachibana-shin@users.noreply.github.com>",
+  "name": "vue-auth3-refresh",
+  "version": "1.1.2",
+  "author": "TimeNovaData",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "unpkg": "dist/index.mjs",
@@ -14,45 +14,45 @@
       "types": "./dist/index.d.ts"
     },
     "./dist/": "./dist/",
-    "./drivers/auth/basic": {
-      "import": "./dist/drivers/auth/basic.mjs",
-      "require": "./dist/drivers/auth/basic.js",
-      "types": "./dist/drivers/auth/basic.d.ts"
+    "./drivers/auth\\basic": {
+      "import": "./dist/drivers/auth\\basic.mjs",
+      "require": "./dist/drivers/auth\\basic.js",
+      "types": "./dist/drivers/auth\\basic.d.ts"
     },
-    "./drivers/auth/bearer-token": {
-      "import": "./dist/drivers/auth/bearer-token.mjs",
-      "require": "./dist/drivers/auth/bearer-token.js",
-      "types": "./dist/drivers/auth/bearer-token.d.ts"
+    "./drivers/auth\\bearer-token": {
+      "import": "./dist/drivers/auth\\bearer-token.mjs",
+      "require": "./dist/drivers/auth\\bearer-token.js",
+      "types": "./dist/drivers/auth\\bearer-token.d.ts"
     },
-    "./drivers/auth/bearer": {
-      "import": "./dist/drivers/auth/bearer.mjs",
-      "require": "./dist/drivers/auth/bearer.js",
-      "types": "./dist/drivers/auth/bearer.d.ts"
+    "./drivers/auth\\bearer": {
+      "import": "./dist/drivers/auth\\bearer.mjs",
+      "require": "./dist/drivers/auth\\bearer.js",
+      "types": "./dist/drivers/auth\\bearer.d.ts"
     },
-    "./drivers/auth/devise": {
-      "import": "./dist/drivers/auth/devise.mjs",
-      "require": "./dist/drivers/auth/devise.js",
-      "types": "./dist/drivers/auth/devise.d.ts"
+    "./drivers/auth\\devise": {
+      "import": "./dist/drivers/auth\\devise.mjs",
+      "require": "./dist/drivers/auth\\devise.js",
+      "types": "./dist/drivers/auth\\devise.d.ts"
     },
-    "./drivers/http/axios": {
-      "import": "./dist/drivers/http/axios.mjs",
-      "require": "./dist/drivers/http/axios.js",
-      "types": "./dist/drivers/http/axios.d.ts"
+    "./drivers/http\\axios": {
+      "import": "./dist/drivers/http\\axios.mjs",
+      "require": "./dist/drivers/http\\axios.js",
+      "types": "./dist/drivers/http\\axios.d.ts"
     },
-    "./drivers/http/fetch": {
-      "import": "./dist/drivers/http/fetch.mjs",
-      "require": "./dist/drivers/http/fetch.js",
-      "types": "./dist/drivers/http/fetch.d.ts"
+    "./drivers/http\\fetch": {
+      "import": "./dist/drivers/http\\fetch.mjs",
+      "require": "./dist/drivers/http\\fetch.js",
+      "types": "./dist/drivers/http\\fetch.d.ts"
     },
-    "./drivers/oauth2/facebook": {
-      "import": "./dist/drivers/oauth2/facebook.mjs",
-      "require": "./dist/drivers/oauth2/facebook.js",
-      "types": "./dist/drivers/oauth2/facebook.d.ts"
+    "./drivers/oauth2\\facebook": {
+      "import": "./dist/drivers/oauth2\\facebook.mjs",
+      "require": "./dist/drivers/oauth2\\facebook.js",
+      "types": "./dist/drivers/oauth2\\facebook.d.ts"
     },
-    "./drivers/oauth2/google": {
-      "import": "./dist/drivers/oauth2/google.mjs",
-      "require": "./dist/drivers/oauth2/google.js",
-      "types": "./dist/drivers/oauth2/google.d.ts"
+    "./drivers/oauth2\\google": {
+      "import": "./dist/drivers/oauth2\\google.mjs",
+      "require": "./dist/drivers/oauth2\\google.js",
+      "types": "./dist/drivers/oauth2\\google.d.ts"
     }
   },
   "typesVersions": {
@@ -103,7 +103,7 @@
   },
   "scripts": {
     "build": "tsup && tsx scripts/export.ts",
-    "prepublishOnly": "bumpp package.json --tags --push && yarn build",
+    "prepublishOnly": "pnpm run build",
     "docs": "typedoc src",
     "test:coverage": "jest",
     "test": "run-s test:*",
@@ -116,9 +116,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tachibana-shin/vue-auth3.git"
+    "url": "git://github.com/TimeNovaData/vue-auth3.git"
   },
-  "homepage": "https://vue-auth3.js.org",
+  "homepage": "https://github.com/TimeNovaData/vue-auth3",
   "keywords": [
     "vue-auth3",
     "vue",

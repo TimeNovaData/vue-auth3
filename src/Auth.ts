@@ -25,6 +25,9 @@ function logout(auth: Auth, redirect?: RouteLocationRaw) {
   $token.remove(auth, auth.options.tokenImpersonateKey)
   $token.remove(auth, auth.options.tokenDefaultKey)
 
+  // Remover o refresh token
+  $token.remove(auth, auth.options.refreshTokenKey || "auth_refresh_token")
+
   $token.remove(auth, auth.options.staySignedInKey)
 
   $token.remove(auth, auth.options.userKey)
@@ -578,13 +581,58 @@ export default class Auth {
    * @request auth/refresh
    * @returns Promise exists token refresh in Authorizer
    */
-  public refresh<OtherOptions extends object>(
+  public async refresh<OtherOptions extends object>(
     data?: OtherOptions & Required<Options>["refreshToken"]
   ) {
-    return this.http({
+    const refreshData = {
       ...this.options.refreshToken,
       ...(data || {}),
+    }
+
+    // Pegar o refresh token atual
+    const currentRefreshToken = $token.get<string | null>(
+      this,
+      this.options.refreshTokenKey || "auth_refresh_token"
+    )
+
+    // Fazer a requisição sem o Authorization header e com refresh token no body
+    const response = await this.http({
+      ...refreshData,
+      ignoreVueAuth: true, // Ignora a adição automática do Authorization header
+      data: {
+        ...refreshData.data,
+        refresh: currentRefreshToken,
+      },
     })
+
+    // Processar a resposta e atualizar os tokens
+    const newToken = this.options.drivers.auth.response(this, response)
+    if (newToken) {
+      $token.set(
+        this,
+        null,
+        newToken,
+        $token.get(this, this.options.staySignedInKey) ? false : true
+      )
+    }
+
+    // Se a resposta contiver um novo refresh token, salvar também
+    // Suporta múltiplos formatos: refresh, refresh_token, refreshToken
+    const newRefreshToken =
+      response.data?.refresh ||
+      response.data?.refresh_token ||
+      response.data?.refreshToken
+
+    if (newRefreshToken) {
+      $token.set(
+        this,
+        this.options.refreshTokenKey || "auth_refresh_token",
+        newRefreshToken,
+        false // Refresh token geralmente não expira na sessão
+      )
+    }
+
+    return response
   }
 
   async register<OtherOptions extends object>(
@@ -633,6 +681,20 @@ export default class Auth {
     setStaySignedIn(this, loginData.staySignedIn)
 
     const response = await this.http(loginData)
+
+    // Salvar o refresh token quando disponível na resposta
+    const refreshToken =
+      response.data?.refresh ||
+      response.data?.refresh_token ||
+      response.data?.refreshToken
+    if (refreshToken) {
+      $token.set(
+        this,
+        this.options.refreshTokenKey || "auth_refresh_token",
+        refreshToken,
+        false // Refresh token não deve expirar na sessão
+      )
+    }
 
     if (loginData.fetchUser && this.options.fetchData.enabled) {
       await this.fetch({

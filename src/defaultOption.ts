@@ -8,6 +8,7 @@ const __defaultOption = {
   tokenDefaultKey: "auth_token_default",
   tokenImpersonateKey: "auth_token_impersonate",
   stores: ["storage", "cookie"],
+  refreshTokenKey: "auth_refresh_token",
 
   cookie: {
     path: "/",
@@ -54,7 +55,7 @@ const __defaultOption = {
     url: "auth/refresh",
     method: "GET",
     enabled: true,
-    interval: <number|boolean|undefined>30,
+    interval: <number | boolean | undefined>30,
   },
   impersonateData: {
     url: "auth/impersonate",
